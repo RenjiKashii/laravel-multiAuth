@@ -33,15 +33,19 @@ Route::get('/admin', function () {
     ]);
 });
 
-Route::group(['middleware'=>['admin']], function() {
-    Route::get('/admin/dashboard', function () {
-        return Inertia::render('Admin/Dashboard');
-    });
-});
+// Route::group(['middleware'=>['auth']], function() {
+//     Route::get('/admin/dashboard', function () {
+//         return Inertia::render('Admin/Dashboard');
+//     });
+// });
+
+Route::get('/admin/dashboard', function () {
+    return Inertia::render('Admin/Dashboard');
+})->middleware(['auth', 'verified'])->name('admin.dashboard');
 
 
-Route::get('/user/dashboard', function () {
-    return Inertia::render('User/Dashboard');
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
