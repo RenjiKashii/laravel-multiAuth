@@ -23,6 +23,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Add for infyom
+        Route::prefix('api/v1')
+        ->middleware('api')
+        ->as('api.')
+        ->namespace($this->app->getNamespace().'Http\Controllers\API')
+        ->group(base_path('routes/api.php'));
     }
 }
