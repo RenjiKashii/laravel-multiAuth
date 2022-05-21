@@ -49,3 +49,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::resource('admin/roles', App\Http\Controllers\Admin\RoleController::class)
+                ->names([
+                    'index' => 'admin.roles.index',
+                    'create' => 'admin.roles.create',
+                    'edit' => 'admin.roles.edit',
+                    'update' => 'admin.roles.update',
+                    'destroy' => 'admin.roles.destroy',
+                    'storef' => 'admin.roles.store',
+                ]);
