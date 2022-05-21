@@ -52,6 +52,7 @@ require __DIR__.'/auth.php';
 
 
 Route::resource('admin/roles', App\Http\Controllers\Admin\RoleController::class)
+                ->middleware(['auth', 'verified'])
                 ->names([
                     'index' => 'admin.roles.index',
                     'create' => 'admin.roles.create',
