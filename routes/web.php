@@ -58,5 +58,5 @@ Route::resource('admin/roles', App\Http\Controllers\Admin\RoleController::class)
                     'edit' => 'admin.roles.edit',
                     'update' => 'admin.roles.update',
                     'destroy' => 'admin.roles.destroy',
-                    'storef' => 'admin.roles.store',
+                    'store' => 'admin.roles.store',
                 ]);

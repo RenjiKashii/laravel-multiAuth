@@ -44,7 +44,9 @@ const showingNavigationDropdown = ref(false);
                                 <BreezeNavLink
                                     :href="route('admin.roles.index')"
                                     :active="
-                                        route().current('admin.roles.index')
+                                        route().current('admin.roles.index') ||
+                                        route().current('admin.roles.create') ||
+                                        route().current('admin.roles.edit')
                                     "
                                 >
                                     Role
@@ -155,7 +157,11 @@ const showingNavigationDropdown = ref(false);
                     <div class="pt-2 pb-3 space-y-1">
                         <BreezeResponsiveNavLink
                             :href="route('admin.roles.index')"
-                            :active="route().current('admin.roles.index')"
+                            :active="
+                                route().current('admin.roles.index') ||
+                                route().current('admin.roles.create') ||
+                                route().current('admin.roles.edit')
+                            "
                         >
                             Role
                         </BreezeResponsiveNavLink>

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Flash;
 use Response;
+use Redirect;
 
 class RoleController extends AppBaseController
 {

@@ -4,7 +4,7 @@
     <BreezeAuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                Role > Create
+                Role > Edit
             </h2>
         </template>
 
@@ -21,8 +21,8 @@
                                     class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                                 />
                             </div>
-                            <div class="mt-4">
-                                <label for="title">Guard Name</label>
+                            <div>
+                                <label for="title">GUARD NAME</label>
                                 <input
                                     type="text"
                                     v-model="form.guard_name"
@@ -48,7 +48,6 @@
 
 <script>
 import BreezeAuthenticatedLayout from "@/Layouts/AdminAuthenticated.vue";
-import BreezeLabel from "@/Components/Label";
 import { Head } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 export default {
@@ -56,17 +55,20 @@ export default {
         BreezeAuthenticatedLayout,
         Head,
     },
-    setup() {
+    setup(props) {
         const form = useForm({
-            name: null,
-            guard_name: null,
+            name: props.role.name,
+            guard_name: props.role.guard_name,
         });
 
         return { form };
     },
+    props: {
+        role: Object,
+    },
     methods: {
         submit() {
-            this.form.post(route("admin.roles.store"));
+            this.form.put(route("admin.roles.update", this.role.id));
         },
     },
 };

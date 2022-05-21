@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 
 class UpdateRoleRequest extends FormRequest
 {
@@ -24,8 +24,11 @@ class UpdateRoleRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Role::$rules;
-        
+        $rules = [
+            'name' => 'required',
+            'guard_name' => 'required'
+        ];
+
         return $rules;
     }
 }

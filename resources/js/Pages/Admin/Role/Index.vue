@@ -1,5 +1,5 @@
 <template>
-    <Head title="RoleIndex" />
+    <Head title="Role" />
 
     <BreezeAuthenticatedLayout>
         <template #header>
@@ -80,7 +80,7 @@ export default {
     },
     methods: {
         destroy(id) {
-            this.$inertia.delete(route("roles.destroy", id));
+            this.$inertia.delete(route("admin.roles.destroy", id));
         },
     },
 };
